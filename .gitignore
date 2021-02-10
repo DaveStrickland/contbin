@@ -9,3 +9,5 @@ paint_output_images
 accumulate_smooth
 accumulate_smooth_expcorr
 accumulate_smooth_expmap
+accumulate_counts
+adaptive_gaussian_smooth

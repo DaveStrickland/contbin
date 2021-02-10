@@ -1,4 +1,20 @@
+# sensible compiler flags
+LIBS = -lparamm
+INCS = 
+CXX = g++
+CXXFLAGS = -std=c++11 -O2 -g -Wall $(INCS)
+LDR = g++
+LDRFLAGS = -L. $(LIBS)
+
 libobjs = switch_option.o pswitch.o param.o autohelp.o autoversion.o
+
+cc.o:
+	$(CXX) $(CXXFLAGS) $<
+
+all:	libparammm.a
+
+clean:
+	rm -vf *.o *.a
 
 switch_option.o : switch_option.hh
 pswitch.o : pswitch.hh switch_option.hh
@@ -11,4 +27,4 @@ libparammm.a: $(libobjs)
 	ranlib libparammm.a
 
 test : test.o libparammm.a
-	$(CXX) -o test test.o -L. -lparammm
+	$(LDR) -o test test.o $(LDRFLAGS)
